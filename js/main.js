@@ -148,17 +148,69 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') window.closeLightbox();
   });
 
-  // --- FORM SUBMIT ---
-  window.handleSubmit = (e) => {
+  // --- FORM SUBMIT → Monday ("Citas Propiedades: Estancias del Bosque") ---
+  // TODO (needs client credential): paste the Monday integration webhook URL here.
+  // Create it in Monday: Integrations → "When a webhook event occurs" / or a form-to-item
+  // automation on the "Citas Propiedades: Estancias del Bosque" board, and paste the URL below.
+  const MONDAY_ENDPOINT = ''; // e.g. 'https://api.monday.com/v2' proxy or an automation webhook URL
+
+  window.handleSubmit = async (e) => {
     e.preventDefault();
-    const btn = e.target.querySelector('[type="submit"]');
-    const orig = btn.textContent;
+    const form  = e.target;
+    const btn   = form.querySelector('[type="submit"]');
+    const errEl = document.getElementById('formError');
+    const orig  = btn.textContent;
+
+    if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+
+    // Native validation first
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+
+    const data = {
+      board: 'Citas Propiedades: Estancias del Bosque',
+      firstName: form.firstName?.value.trim(),
+      lastName:  form.lastName?.value.trim(),
+      email:     form.email?.value.trim(),
+      phone:     form.phone?.value.trim(),
+      model:     form.model?.value,
+      message:   form.message?.value.trim(),
+      source:    'estancias-del-bosque-web',
+      submittedAt: new Date().toISOString()
+    };
+
     btn.textContent = 'Sending…';
-    setTimeout(() => {
+    btn.disabled = true;
+
+    // If the Monday endpoint isn't configured yet, fail loudly (not silently) so it gets wired.
+    if (!MONDAY_ENDPOINT) {
+      console.warn('[contact] MONDAY_ENDPOINT not configured — submission not sent.', data);
+      if (errEl) {
+        errEl.style.display = 'block';
+        errEl.textContent = 'El formulario aún no está conectado a Monday. Por favor llámanos al (787) 429-1414.';
+      }
+      btn.textContent = orig;
+      btn.disabled = false;
+      return;
+    }
+
+    try {
+      const res = await fetch(MONDAY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       btn.textContent = '✓ Thank You — We\'ll Be In Touch';
       btn.style.background = '#1A1A1A';
-      btn.disabled = true;
-    }, 800);
+    } catch (err) {
+      console.error('[contact] submission failed', err);
+      if (errEl) {
+        errEl.style.display = 'block';
+        errEl.textContent = 'No pudimos enviar tu solicitud. Inténtalo de nuevo o llámanos al (787) 429-1414.';
+      }
+      btn.textContent = orig;
+      btn.disabled = false;
+    }
   };
 
   // --- MOBILE HAMBURGER ---

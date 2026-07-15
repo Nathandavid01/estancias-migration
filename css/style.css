@@ -2096,3 +2096,108 @@ footer {
 @media (max-width: 600px) {
   .collection { padding: 60px 24px; }
 }
+
+/* =============================================
+   CLIENT-FEEDBACK REVISIONS (single-page merge)
+   ============================================= */
+
+/* Slide counter moved to top-right, with a clear label (was an unlabeled number) */
+.hero-counter--top {
+  top: 112px;
+  bottom: auto;
+  right: 80px;
+  flex-direction: row;
+}
+.hero-counter-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-right: 4px;
+}
+@media (max-width: 768px) {
+  .hero-counter--top { top: 88px; right: 20px; }
+}
+
+/* Availability pills for the always-visible catalog */
+.avail-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 500;
+  background: rgba(58, 90, 64, 0.12);
+  color: var(--forest, #2f4a34);
+}
+.avail-pill::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.avail-pill.soon { background: rgba(176, 141, 87, 0.16); color: #9a7636; }
+.avail-pill.call { background: rgba(40, 40, 40, 0.08); color: #333; }
+
+/* Always-visible catalog strip */
+.catalog-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto 72px;
+}
+.catalog-card {
+  border: 1px solid rgba(20,20,20,0.10);
+  padding: 26px 26px 22px;
+  background: var(--off-white, #faf8f4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow .3s, transform .3s;
+  text-align: left;
+}
+.catalog-card:hover { box-shadow: 0 20px 44px rgba(14,24,18,0.10); transform: translateY(-3px); }
+.catalog-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin: 0; }
+.catalog-card .catalog-meta { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light, #b08d57); }
+.catalog-card .catalog-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-top: auto; }
+.catalog-card a.catalog-link { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--charcoal, #1a1a1a); text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; width: fit-content; }
+@media (max-width: 900px) { .catalog-strip { grid-template-columns: 1fr; max-width: 520px; } }
+
+/* Footnote for "to be confirmed" figures */
+.model-note {
+  font-size: 12px;
+  color: rgba(20,20,20,0.55);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Differentiators / upgrades two-column list */
+.spec-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 40px;
+  margin: 18px 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.spec-columns li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--charcoal, #1a1a1a);
+}
+.spec-columns li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--gold-light, #b08d57);
+  font-size: 11px;
+  top: 2px;
+}
+@media (max-width: 700px) { .spec-columns { grid-template-columns: 1fr; } }
