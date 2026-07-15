@@ -181,15 +181,20 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // If the Monday endpoint isn't configured yet, fail loudly (not silently) so it gets wired.
+    // Until the Monday endpoint is wired, fall back to a pre-filled email to the sales office
+    // so leads are captured today (not dropped). Swap for the Monday POST once the URL is set.
     if (!MONDAY_ENDPOINT) {
-      console.warn('[contact] MONDAY_ENDPOINT not configured — submission not sent.', data);
-      if (errEl) {
-        errEl.style.display = 'block';
-        errEl.textContent = 'El formulario aún no está conectado a Monday. Por favor llámanos al (787) 429-1414.';
-      }
-      btn.textContent = orig;
-      btn.disabled = false;
+      const subject = encodeURIComponent('Cita / Info — Estancias del Bosque (' + (data.model || 'General') + ')');
+      const body = encodeURIComponent(
+        'Nombre: ' + data.firstName + ' ' + data.lastName + '\n' +
+        'Email: ' + data.email + '\n' +
+        'Teléfono: ' + (data.phone || '—') + '\n' +
+        'Modelo de interés: ' + (data.model || '—') + '\n\n' +
+        'Mensaje:\n' + (data.message || '—')
+      );
+      window.location.href = 'mailto:office@aarealtorpr.com?subject=' + subject + '&body=' + body;
+      btn.textContent = '✓ Opening your email…';
+      setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
       return;
     }
 
