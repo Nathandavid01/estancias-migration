@@ -6,10 +6,10 @@ Status as of 2026-07-15. The website build is **complete for everything achievab
 
 ## A) Send to the CLIENT — 3 decisions/data points
 
-**1. Exact square footage per model.** The site currently shows `~2,850 sq ft*` with a "por confirmar" footnote on all three. Please confirm exact sq ft for each:
-- Modelo Flamboyán (two-story, 3BR): ________
-- Modelo Ceiba (single-story, 4BR): ________
-- Modelo Yagrumo (single-story, 3BR): ________
+**1. Exact square footage per model. ✅ CONFIRMED (2026-07-17):**
+- Modelo Flamboyán (two-story, 3BR): **2,629 sq ft** (aprox)
+- Modelo Ceiba (single-story, 4BR): **2,570 sq ft** (aprox)
+- Modelo Yagrumo (single-story, 3BR): **2,382 sq ft** (aprox)
 
 **2. Final project name.** "Reserve" has been removed everywhere per your note that the surname isn't decided. Site currently reads **"Estancias del Bosque"** only. Confirm final name (or that "Estancias del Bosque" stands).
 
