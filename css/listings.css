@@ -143,20 +143,21 @@
 .listing-card-large.reverse > * { direction: ltr; }
 
 .listing-card-large-img {
-  height: 520px;
+  min-height: 520px;
   overflow: hidden;
   position: relative;
+  background: var(--off-white);
 }
 
 .listing-card-large-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;   /* show the whole render, never crop */
   transition: transform 0.8s ease;
 }
 
 .listing-card-large:hover .listing-card-large-img img {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .listing-card-large-badge {
