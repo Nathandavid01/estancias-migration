@@ -2210,8 +2210,10 @@ footer {
 .tour-models {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 24px;
   width: 100%;
+  max-width: 960px;   /* keep the videos compact, not full-bleed */
+  margin: 0 auto;
 }
 .tour-model-card { margin: 0; }
 .tour-model-name {
