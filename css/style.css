@@ -2201,3 +2201,7 @@ footer {
   top: 2px;
 }
 @media (max-width: 700px) { .spec-columns { grid-template-columns: 1fr; } }
+
+/* Virtual Tour — three equal videos, one per house */
+.tour-grid.tour-grid-3 { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .tour-grid.tour-grid-3 { grid-template-columns: 1fr; } }
