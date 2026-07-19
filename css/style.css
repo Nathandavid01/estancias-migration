@@ -2219,9 +2219,10 @@ footer {
   align-items: baseline;
   gap: 10px;
   margin-bottom: 12px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   color: var(--charcoal);
 }
 .tour-model-name span {
