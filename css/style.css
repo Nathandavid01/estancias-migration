@@ -2205,3 +2205,38 @@ footer {
 /* Virtual Tour — three equal videos, one per house */
 .tour-grid.tour-grid-3 { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .tour-grid.tour-grid-3 { grid-template-columns: 1fr; } }
+
+/* Virtual Tour — name on top, three videos in one horizontal row */
+.tour-models {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+}
+.tour-model-card { margin: 0; }
+.tour-model-name {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--charcoal);
+}
+.tour-model-name span {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.tour-model-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--charcoal);
+  box-shadow: 0 24px 60px rgba(14, 24, 18, 0.12);
+}
+@media (max-width: 900px) { .tour-models { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
