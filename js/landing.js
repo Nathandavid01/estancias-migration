@@ -154,7 +154,7 @@
       console.error('[contact] submission failed', err);
       if (errEl) {
         errEl.style.display = 'block';
-        errEl.textContent = 'No pudimos enviar tu solicitud. Inténtalo de nuevo, escríbenos por WhatsApp o llámanos al (787) 429-1414.';
+        errEl.textContent = 'No pudimos enviar tu solicitud. Inténtalo de nuevo, escríbenos por WhatsApp o llámanos al (787) 860-1415.';
       }
       btn.textContent = orig;
       btn.disabled = false;
