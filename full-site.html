@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estancias del Bosque — Luxury Residences · AA Real Estate</title>
+  <meta name="description" content="Estancias del Bosque — A boutique community of 22 modern luxury residences in the heart of Trujillo Alto, Puerto Rico. Starting from $787K. Developed by AA Real Estate." />
+  <!-- POR CONFIRMAR: nombre final del proyecto ("Reserve" removido por indicación del cliente) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/listings.css" />
+</head>
+<body id="top">
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <span class="pl-el">E</span><span class="pl-el">s</span><span class="pl-el">t</span><span class="pl-el">a</span><span class="pl-el">n</span><span class="pl-el">c</span><span class="pl-el">i</span><span class="pl-el">a</span><span class="pl-el">s</span>
+      </div>
+      <div class="preloader-sub">del Bosque · AA Real Estate</div>
+      <div class="preloader-bar"><div class="preloader-bar-fill" id="preloaderBar"></div></div>
+    </div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-main">Estancias del Bosque</span>
+      <span class="nav-logo-sub">AA Real Estate</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">The Development</a></li>
+      <li><a href="#residences">Residences</a></li>
+      <li><a href="#community">Community</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Schedule a Visit</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#top" onclick="closeMobile()">Home</a></li>
+      <li><a href="#about" onclick="closeMobile()">The Development</a></li>
+      <li><a href="#residences" onclick="closeMobile()">Residences</a></li>
+      <li><a href="#community" onclick="closeMobile()">Community</a></li>
+      <li><a href="#gallery" onclick="closeMobile()">Gallery</a></li>
+      <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+      <li><a href="#contact" class="mobile-cta" onclick="closeMobile()">Schedule a Visit</a></li>
+    </ul>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline poster="images/tour-two-story-poster.jpg">
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-slides" id="heroSlides">
+      <div class="hero-slide active">
+        <img src="images/render-1.jpeg" alt="Estancias del Bosque — Streetscape" />
+      </div>
+      <div class="hero-slide">
+        <img src="images/render-3.jpeg" alt="Estancias del Bosque — Residence" />
+      </div>
+      <div class="hero-slide">
+        <img src="images/render-2.jpeg" alt="Estancias del Bosque — Private Garden" />
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">AA Real Estate &nbsp;·&nbsp; Trujillo Alto, Puerto Rico</p>
+      <h1 class="hero-title"><em>Estancias</em><br>del Bosque</h1>
+      <p class="hero-subtitle">A boutique collection of 22 luxury residences in the heart of Trujillo Alto — an exclusive community wrapped in mature greenery, minutes from everything the city offers.</p>
+      <div class="hero-actions">
+        <a href="#residences" class="btn-primary">View All Residences</a>
+        <a href="#contact" class="btn-outline">Speak With Us</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      Scroll
+    </div>
+
+    <!-- Slide counter relocated to top-right with a clear label (was an unlabeled number bottom-right) -->
+    <div class="hero-counter hero-counter--top">
+      <span class="hero-counter-label">View</span>
+      <span class="hero-counter-current" id="heroCounterCurrent">01</span>
+      <div class="hero-counter-bar"><div class="hero-counter-progress" id="heroProgress"></div></div>
+      <span class="hero-counter-total">03</span>
+    </div>
+
+    <div class="hero-dots" style="display:none">
+      <button class="hero-dot active" data-slide="0"></button>
+      <button class="hero-dot" data-slide="1"></button>
+      <button class="hero-dot" data-slide="2"></button>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE STRIP ============ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Luxury Living</span><span class="marquee-dot">✦</span>
+      <span>Trujillo Alto, Puerto Rico</span><span class="marquee-dot">✦</span>
+      <span>22 Boutique Lots</span><span class="marquee-dot">✦</span>
+      <span>Starting from $787K</span><span class="marquee-dot">✦</span>
+      <span>AA Real Estate</span><span class="marquee-dot">✦</span>
+      <span>Estancias del Bosque</span><span class="marquee-dot">✦</span>
+      <span>Luxury Living</span><span class="marquee-dot">✦</span>
+      <span>Trujillo Alto, Puerto Rico</span><span class="marquee-dot">✦</span>
+      <span>22 Boutique Lots</span><span class="marquee-dot">✦</span>
+      <span>Starting from $787K</span><span class="marquee-dot">✦</span>
+      <span>AA Real Estate</span><span class="marquee-dot">✦</span>
+      <span>Estancias del Bosque</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ============ STATS BAR ============ -->
+  <div class="stats-bar">
+    <div class="stat-item fade-up">
+      <div class="stat-number">Starting from <span>$787K</span></div>
+      <div class="stat-label">Starting Price</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-number">3–4<span>BR · 3.5BA</span></div>
+      <div class="stat-label">Per Residence</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-number">2,382<span>–2,629</span></div>
+      <div class="stat-label">Sq Ft Range (aprox.)</div>
+    </div>
+    <div class="stat-item fade-up">
+      <div class="stat-number">22</div>
+      <div class="stat-label">Total Lots Available</div>
+    </div>
+  </div>
+
+  <!-- ============ PROJECT PERSPECTIVE — 3 houses together ============ -->
+  <!-- POR CONFIRMAR: reemplazar con foto/video real de las 3 casas juntas (perspectiva del proyecto completo) -->
+  <section class="intro" id="about">
+    <div class="intro-text fade-up">
+      <p class="section-label">The Development</p>
+      <h2>A New Standard<br><em>of Luxury Living</em></h2>
+      <p>Estancias del Bosque is a private boutique community of 22 modern luxury residences in Trujillo Alto — a boutique product designed for those who want an exclusive, green enclave inside an established city, not a remote development.</p>
+      <p>Set within a fully established urbanización with complete infrastructure, each home blends into mature tropical surroundings while delivering craftsmanship on par with the finest private residences in Puerto Rico. The heart of Trujillo Alto, with every urban convenience minutes away.</p>
+      <div class="intro-cta">
+        <a href="#residences" class="btn-dark">View All Residences</a>
+        <a href="#contact" class="link-arrow">
+          Speak With Us
+          <svg width="20" height="10" viewBox="0 0 20 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 5H19M15 1L19 5L15 9" stroke="currentColor" stroke-width="1.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="intro-image fade-up">
+       <!-- POR CONFIRMAR: sustituir por la foto/video real de las 3 casas juntas. collection-cover.jpg NO se usa: tiene "Reserve" y marca de agua incrustadas. -->
+       <img loading="lazy" decoding="async" src="images/render-3.jpeg" alt="Estancias del Bosque — Residence" />
+      <div class="intro-image-badge">
+        <span class="intro-image-badge-title">Estancias del Bosque</span>
+        <span class="intro-image-badge-sub">Trujillo Alto · Puerto Rico</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section class="features">
+    <div class="features-header">
+      <div>
+        <p class="section-label">Why Estancias del Bosque</p>
+        <h2>Crafted for<br><em>Exceptional Living</em></h2>
+      </div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="24" width="36" height="18" rx="1"/>
+            <path d="M6 24L24 8L42 24"/>
+            <rect x="19" y="32" width="10" height="10"/>
+          </svg>
+        </div>
+        <h3>Modern Architecture</h3>
+        <p>Polished, colored-cement facades with generous eaves and clean geometric lines — a serious, natural, and sober aesthetic that ages beautifully.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 26C8 26 14 14 24 14C34 14 40 26 40 26"/>
+            <path d="M4 30H44M12 30V38M24 30V40M36 30V38"/>
+          </svg>
+        </div>
+        <h3>Natural Light &amp; Cross Ventilation</h3>
+        <p>Homes designed to breathe — abundant natural light and cross ventilation through windows where applicable, for comfort that works with the climate.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="8" width="36" height="32" rx="1"/>
+            <path d="M6 20H42M18 8V40"/>
+          </svg>
+        </div>
+        <h3>Thick 7/16&quot; Glass Windows</h3>
+        <p>Heavy 7/16" glass windows throughout — improving A/C efficiency and privacy while keeping the streetscape refined.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4L28 16H40L30 24L34 36L24 28L14 36L18 24L8 16H20L24 4Z"/>
+          </svg>
+        </div>
+        <h3>Premium, Move-In Ready</h3>
+        <p>Pantry, open-plan living, solar water heater included, plus provisions for solar panels and a generator — thoughtful details you'll notice every day.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="40" height="40" rx="2"/>
+            <path d="M4 16H44M16 4V44M4 28H44"/>
+          </svg>
+        </div>
+        <h3>Thoughtful Floor Plans</h3>
+        <p>Three distinct models — two-story and single-story designs, 3 to 4 bedrooms with 3.5 baths — with junior master suites and layouts tailored to your lifestyle.</p>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-icon">
+          <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 44C35.046 44 44 35.046 44 24C44 12.954 35.046 4 24 4C12.954 4 4 12.954 4 24C4 35.046 12.954 44 24 44Z"/>
+            <path d="M24 12V24L32 32"/>
+          </svg>
+        </div>
+        <h3>Boutique Community</h3>
+        <p>Only 22 private lots — an exclusive enclave with mature vegetation inside the city, on an established urbanización with complete infrastructure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMMUNITY ============ -->
+  <section class="community" id="community">
+    <div class="community-inner">
+      <div class="community-header fade-up">
+        <p class="section-label">The Community</p>
+        <h2>More Than a Home —<br><em>A Community</em></h2>
+        <p>Estancias del Bosque is a boutique community of 22 residences in the heart of Trujillo Alto, set on an established urbanización with complete infrastructure and mature vegetation. Beyond your front door, the community amenities make every day feel like a privilege.</p>
+      </div>
+      <div class="community-grid">
+        <div class="community-card fade-up">
+          <div class="community-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 36c0 8.837 10.745 16 24 16s24-7.163 24-16"/>
+              <ellipse cx="32" cy="28" rx="24" ry="10"/>
+              <path d="M14 30c2-2 5-3 8-3s6 2 10 2 8-2 10-2 6 1 8 3"/>
+              <line x1="32" y1="18" x2="32" y2="52"/>
+            </svg>
+          </div>
+          <h3>Community Pool</h3>
+          <p>An existing community pool for residents of Estancias del Bosque — the perfect place to cool off, relax, and connect with neighbors in a private setting.</p>
+          <span class="community-badge">Existing Amenity</span>
+        </div>
+        <div class="community-card fade-up">
+          <div class="community-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="12" width="52" height="40" rx="2"/>
+              <line x1="32" y1="12" x2="32" y2="52"/>
+              <rect x="12" y="12" width="14" height="8"/>
+              <rect x="38" y="12" width="14" height="8"/>
+              <line x1="6" y1="32" x2="13" y2="32"/>
+              <line x1="51" y1="32" x2="58" y2="32"/>
+              <circle cx="21" cy="30" r="3"/>
+              <circle cx="43" cy="30" r="3"/>
+            </svg>
+          </div>
+          <h3>Two Basketball Courts</h3>
+          <p>Two full-size basketball courts available exclusively for residents and their guests. Stay active without ever leaving the community.</p>
+          <span class="community-badge">2 Full Courts</span>
+        </div>
+        <div class="community-card fade-up">
+          <div class="community-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="48" height="48" rx="3" stroke-dasharray="5 3"/>
+              <path d="M24 32h16M32 24v16"/>
+              <circle cx="32" cy="32" r="6"/>
+              <path d="M16 20l6 6M48 20l-6 6M16 44l6-6M48 44l-6-6"/>
+            </svg>
+          </div>
+          <h3>Adjacent Expansion Lot</h3>
+          <p>An adjacent lot is reserved for future community facilities as the community grows and evolves — additional amenities to come.</p>
+          <span class="community-badge">Future Facilities</span>
+        </div>
+      </div>
+
+      <!-- MINUTES TO POINTS OF INTEREST — kept in-flow so it's never lost when browsing models -->
+      <div class="location-inner" style="margin-top:80px">
+        <div class="location-text fade-up">
+          <p class="section-label" style="color:var(--gold-light)">Location</p>
+          <h2>The <em>Heart of</em><br>Trujillo Alto</h2>
+          <p>Not a remote mountain development — a centrally located community with immediate access to everything the metro area offers, surrounded by an established neighborhood.</p>
+          <ul class="location-list">
+            <li><span class="loc-label">Paseo Mall</span><span class="loc-value">5 minutes away</span></li>
+            <li><span class="loc-label">Encantada</span><span class="loc-value">5 minutes away</span></li>
+            <li><span class="loc-label">Copa</span><span class="loc-value">10 minutes away</span></li>
+            <li><span class="loc-label">Airport SJU</span><span class="loc-value">Easy direct access</span></li>
+            <li><span class="loc-label">Community</span><span class="loc-value">Established urbanización · full infrastructure</span></li>
+            <li><span class="loc-label">Scale</span><span class="loc-value">Boutique 22 lots vs. mass developments</span></li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="margin-top:8px">Request Location Details</a>
+        </div>
+        <div class="location-visual fade-up">
+          <div class="location-map">
+            <iframe
+              src="https://www.google.com/maps?q=530+Camino+Los+Aquinos,+Trujillo+Alto,+PR+00976&output=embed"
+              width="100%"
+              height="100%"
+              style="border:0; border-radius:4px;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Estancias del Bosque Location">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESIDENCES (catalog + detail, single page) ============ -->
+  <section class="listings-section" id="residences">
+    <div class="listings-section-header fade-up">
+      <div>
+        <p class="section-label">Available Residences</p>
+        <h2>Choose Your <em>Home</em></h2>
+      </div>
+      <span class="listings-count">Starting from $787K</span>
+    </div>
+
+    <!-- ALWAYS-VISIBLE CATALOG with availability labels -->
+    <!-- POR CONFIRMAR: disponibilidad y fechas exactas por modelo -->
+    <div class="catalog-strip">
+      <div class="catalog-card fade-up">
+        <span class="catalog-meta">Two Story</span>
+        <h3>Modelo Flamboyán</h3>
+        <p style="font-size:14px;color:rgba(20,20,20,0.7);line-height:1.6;margin:0;">Premium two-story residence — the flagship of the collection.</p>
+        <a class="catalog-link" href="#flamboyan">View Model →</a>
+      </div>
+      <div class="catalog-card fade-up">
+        <span class="catalog-meta">Single Story</span>
+        <h3>Modelo Ceiba</h3>
+        <p style="font-size:14px;color:rgba(20,20,20,0.7);line-height:1.6;margin:0;">Spacious single-story design with junior master suites.</p>
+        <a class="catalog-link" href="#ceiba">View Model →</a>
+      </div>
+      <div class="catalog-card fade-up">
+        <span class="catalog-meta">Single Story</span>
+        <h3>Modelo Yagrumo</h3>
+        <p style="font-size:14px;color:rgba(20,20,20,0.7);line-height:1.6;margin:0;">Single-level living, open-plan and light-filled.</p>
+        <a class="catalog-link" href="#yagrumo">View Model →</a>
+      </div>
+    </div>
+    <!-- POR CONFIRMAR: el cliente indicó que hay DOS modelos de 2 pisos y UNO de 1 piso, y que el metraje/pisos exacto por modelo se validará. Arriba se ordenó 2 pisos primero. Ajustar identidades reales cuando se confirmen. -->
+
+    <!-- MODELO FLAMBOYÁN (2 pisos) -->
+    <div class="listing-card-large fade-up" id="flamboyan" data-model="flamboyan">
+      <div class="listing-card-large-img">
+         <video src="images/tour-two-story.mp4" poster="images/render-2.jpeg" autoplay muted loop playsinline
+                style="width:100%;height:100%;object-fit:cover;display:block;"></video>
+      </div>
+      <div class="listing-card-large-body">
+        <p class="section-label">Modelo</p>
+        <h2>Flamboyán</h2>
+        <p class="listing-card-type">Two Story · Premium · Junior Master Suites</p>
+        <div class="listing-specs">
+          <div class="listing-spec"><span class="listing-spec-value">3</span><span class="listing-spec-label">Bedrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">3.5</span><span class="listing-spec-label">Bathrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">2,629</span><span class="listing-spec-label">Sq Ft (aprox.)</span></div>
+        </div>
+        <p class="listing-description">The flagship of Estancias del Bosque — a two-story residence that commands attention from every angle. Generous proportions, a polished colored-cement facade with eaves, open-plan living, and interiors that deliver craftsmanship on par with the finest private residences in Puerto Rico.</p>
+        <ul class="listing-highlights">
+          <li>Master suite 13×18 with 6.5×11.5 walk-in closet</li>
+          <li>Master bath 12×11</li>
+          <li>Junior master (ensuite) bedrooms</li>
+          <li>Exterior storage for bikes &amp; boards</li>
+          <li>Pantry + open-plan living</li>
+          <li>Solar water heater included</li>
+        </ul>
+        <div class="listing-actions">
+          <a href="#contact" class="btn-dark">Request Pricing</a>
+          <a href="#contact" class="btn-gold-outline">Schedule a Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODELO CEIBA (2 pisos) -->
+    <div class="listing-card-large reverse fade-up" id="ceiba" data-model="ceiba">
+      <div class="listing-card-large-img">
+         <img loading="lazy" decoding="async" src="images/render-3.jpeg" alt="Modelo Ceiba — Estancias del Bosque (single-story)" />
+      </div>
+      <div class="listing-card-large-body">
+        <p class="section-label">Modelo</p>
+        <h2>Ceiba</h2>
+        <p class="listing-card-type">Single Story · Contemporary · Junior Master Suites</p>
+        <div class="listing-specs">
+          <div class="listing-spec"><span class="listing-spec-value">4</span><span class="listing-spec-label">Bedrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">3.5</span><span class="listing-spec-label">Bathrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">2,570</span><span class="listing-spec-label">Sq Ft (aprox.)</span></div>
+        </div>
+        <p class="listing-description">A spacious single-story design built around open-plan living, abundant natural light, and cross ventilation. Every secondary bedroom is a junior master suite, and a colored polished-cement facade with eaves keeps the streetscape refined — craftsmanship on par with the finest private residences in Puerto Rico.</p>
+        <ul class="listing-highlights">
+          <li>All bedrooms as junior master suites</li>
+          <li>Master suite up to 18×20</li>
+          <li>Pantry + open-plan great room</li>
+          <li>Provisions for solar panels &amp; generator</li>
+          <li>7/16" thick glass windows (A/C efficiency + privacy)</li>
+          <li>Covered 2-car carport</li>
+        </ul>
+        <div class="listing-actions">
+          <a href="#contact" class="btn-dark">Request Pricing</a>
+          <a href="#contact" class="btn-gold-outline">Schedule a Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODELO YAGRUMO (1 piso) -->
+    <div class="listing-card-large fade-up" id="yagrumo" data-model="yagrumo">
+      <div class="listing-card-large-img">
+         <img loading="lazy" decoding="async" src="images/render-1.jpeg" alt="Modelo Yagrumo — Estancias del Bosque (single-story)" />
+      </div>
+      <div class="listing-card-large-body">
+        <p class="section-label">Modelo</p>
+        <h2>Yagrumo</h2>
+        <p class="listing-card-type">Single Story · Luxury · Junior Master Suites</p>
+        <div class="listing-specs">
+          <div class="listing-spec"><span class="listing-spec-value">3</span><span class="listing-spec-label">Bedrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">3.5</span><span class="listing-spec-label">Bathrooms</span></div>
+          <div class="listing-spec"><span class="listing-spec-value">2,382</span><span class="listing-spec-label">Sq Ft (aprox.)</span></div>
+        </div>
+        <p class="listing-description">Single-level living defined by natural light and cross ventilation. Open-plan and serene, the Yagrumo brings the same premium finishes and colored polished-cement facade to a one-story format — for those who prefer everything on a single floor.</p>
+        <ul class="listing-highlights">
+          <li>Single-level open-plan living</li>
+          <li>Junior master (ensuite) bedrooms</li>
+          <li>Pantry + solar water heater included</li>
+          <li>Natural light &amp; cross ventilation</li>
+          <li>Colored polished-cement facade with eaves</li>
+          <li>Covered 2-car carport</li>
+        </ul>
+        <div class="listing-actions">
+          <a href="#contact" class="btn-dark">Request Pricing</a>
+          <a href="#contact" class="btn-gold-outline">Schedule a Visit</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DIFFERENTIATORS + UPGRADES -->
+    <div class="listings-section-header fade-up" style="margin-top:20px">
+      <div>
+        <p class="section-label">The Details</p>
+        <h2>What Sets Them <em>Apart</em></h2>
+      </div>
+    </div>
+    <ul class="spec-columns fade-up">
+      <li>All secondary bedrooms as junior master suites</li>
+      <li>Master suite up to 18×20</li>
+      <li>Colored polished-cement facade with eaves</li>
+      <li>7/16" thick glass windows — A/C efficiency + privacy</li>
+      <li>Pantry + open-plan living</li>
+      <li>Abundant natural light &amp; cross ventilation</li>
+      <li>Solar water heater included</li>
+      <li>Provisions for solar panels &amp; generator</li>
+    </ul>
+    <div class="listings-section-header fade-up" style="margin-top:48px">
+      <div>
+        <p class="section-label">Make It Yours</p>
+        <h2>Available <em>Upgrades</em></h2>
+      </div>
+    </div>
+    <ul class="spec-columns fade-up">
+      <li>Pool &amp; terrace available on select models</li>
+      <li>Laminate flooring options</li>
+      <li>Kitchen countertop options</li>
+      <li>Additional finishes on request</li>
+    </ul>
+  </section>
+
+  <!-- ============ VIDEO TOUR (per-model) ============ -->
+  <section class="video-tour">
+    <div class="video-tour-inner fade-up">
+      <div class="video-tour-header">
+        <p class="section-label" style="color:var(--gold)">Virtual Tour</p>
+        <h2>See <em>Estancias</em><br>Come to Life</h2>
+        <p>Walk through the architecture, the surroundings, and the lifestyle that make Estancias del Bosque unlike anything else in Trujillo Alto.</p>
+      </div>
+      <div class="tour-models">
+        <figure class="tour-model-card fade-up">
+          <video controls preload="none" playsinline poster="images/tour-two-story-poster.jpg">
+            <source src="images/tour-two-story.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="tour-model-card fade-up">
+          <video controls preload="metadata" playsinline>
+            <source src="images/ceibavideo-1.mp4" type="video/mp4">
+          </video>
+        </figure>
+        <figure class="tour-model-card fade-up">
+          <video controls preload="none" playsinline poster="images/tour-single-story-poster.jpg">
+            <source src="images/tour-single-story.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header fade-up">
+      <div>
+        <p class="section-label">Gallery</p>
+        <h2>The <em>Residences</em></h2>
+      </div>
+    </div>
+    <!-- POR CONFIRMAR: incluir los 4 renders interiores (dormitorio principal, sala x2, cocina) + adicionales; renders sin logo de Gemini y con personas -->
+    <div class="gallery-grid">
+      <div class="gallery-item featured fade-up" onclick="openLightbox('images/render-1.jpeg')">
+         <img loading="lazy" decoding="async" src="images/render-1.jpeg" alt="Estancias del Bosque — Street View" />
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item fade-up" onclick="openLightbox('images/render-2.jpeg')">
+         <img loading="lazy" decoding="async" src="images/render-2.jpeg" alt="Estancias del Bosque — Two-Story Residence" />
+        <div class="gallery-overlay"></div>
+      </div>
+      <div class="gallery-item fade-up" onclick="openLightbox('images/render-3.jpeg')">
+         <img loading="lazy" decoding="async" src="images/render-3.jpeg" alt="Estancias del Bosque — Facade" />
+        <div class="gallery-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIFESTYLE ============ -->
+  <section class="lifestyle">
+    <div class="lifestyle-image fade-up">
+       <img loading="lazy" decoding="async" src="images/render-2.jpeg" alt="Estancias del Bosque Lifestyle" />
+    </div>
+    <div class="lifestyle-content fade-up">
+      <p class="section-label">The Estancias Life</p>
+      <h2>Private.<br><em>Serene.</em><br>Elevated.</h2>
+      <p>Life at Estancias del Bosque is defined by the balance of nature and design — an exclusive, green enclave inside an established city, moments from everything you need.</p>
+      <ul class="lifestyle-list">
+        <li>Boutique community of 22 residences</li>
+        <li>Two-story and single-story homes</li>
+        <li>Designed for indoor-outdoor living</li>
+        <li>Architecturally consistent streetscape</li>
+        <li>Minutes from Paseo Mall, Copa &amp; Encantada</li>
+        <li>Community pool and two basketball courts</li>
+      </ul>
+      <a href="#contact" class="btn-gold-outline">Inquire Today</a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-text fade-up">
+        <p class="section-label">Get In Touch</p>
+        <h2>Begin Your<br><em>Journey Home</em></h2>
+        <p>Ready to learn more about Estancias del Bosque? Our team will walk you through every model, answer your questions, and schedule a private site visit at your convenience.</p>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <p class="contact-info-label">Phone</p>
+              <p class="contact-info-value"><a href="tel:+17877261415" style="color:inherit;text-decoration:none;">(787) 726-1415</a></p>
+              <p class="contact-info-value" style="margin-top:4px;"><a href="tel:+17874291414" style="color:inherit;text-decoration:none;">(787) 429-1414</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-info-label">Email</p>
+              <p class="contact-info-value"><a href="mailto:office@aarealtorpr.com" style="color:inherit;text-decoration:none;">office@aarealtorpr.com</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="contact-info-label">Address</p>
+              <p class="contact-info-value">
+                <a href="https://maps.google.com/?q=530+Camino+Los+Aquinos,+Trujillo+Alto,+PR+00976" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">
+                  530 Camino Los Aquinos<br>Trujillo Alto, PR 00976
+                </a>
+              </p>
+              <p class="contact-info-value" style="margin-top:4px; opacity:0.7; font-size:0.85em;">Puerto Rico &nbsp;|&nbsp; Florida</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="contact-info-label">Office Hours</p>
+              <p class="contact-info-value">Mon – Fri, 8:30 AM – 5:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form posts to Monday board "Citas Propiedades: Estancias del Bosque" via configured endpoint in main.js -->
+      <form class="contact-form fade-up" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" placeholder="Juan" required />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" placeholder="García" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="juan@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="(787) 726-1415" />
+        </div>
+        <div class="form-group">
+          <label for="model">Interested In</label>
+          <select id="model" name="model">
+            <option value="">Select a Model</option>
+            <option value="flamboyan">Modelo Flamboyán — Two Story · 3BR + 3.5BA</option>
+            <option value="ceiba">Modelo Ceiba — Single Story · 4BR + 3.5BA</option>
+            <option value="yagrumo">Modelo Yagrumo — Single Story · 3BR + 3.5BA</option>
+            <option value="general">General Information</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message (Optional)</label>
+          <textarea id="message" name="message" placeholder="Tell us about your needs or the best time to reach you..."></textarea>
+        </div>
+        <p class="form-error" id="formError" style="display:none;color:#b00020;font-size:13px;margin:0 0 4px;"></p>
+        <div class="form-submit">
+          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">
+            Submit Inquiry
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">Estancias del Bosque</div>
+        <p class="footer-tagline">A boutique collection of 22 modern luxury residences in the heart of Trujillo Alto, Puerto Rico. Starting from $787K.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/17874291414" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>The Development</h4>
+        <ul>
+          <li><a href="#about">About Estancias</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#residences">Our Models</a></li>
+          <li><a href="#contact">Contact Sales</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Residences</h4>
+        <ul>
+          <li><a href="#flamboyan">Modelo Flamboyán</a></li>
+          <li><a href="#ceiba">Modelo Ceiba</a></li>
+          <li><a href="#yagrumo">Modelo Yagrumo</a></li>
+          <li><a href="#residences">All Models</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>AA Real Estate</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Other Projects</a></li>
+          <li><a href="#contact">Schedule Visit</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AA Real Estate. Estancias del Bosque. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ WHATSAPP FLOAT ============ -->
+  <a href="https://wa.me/17874291414" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
