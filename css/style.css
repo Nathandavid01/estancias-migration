@@ -389,7 +389,7 @@ h1, h2, h3, h4 {
 /* Hero scroll indicator */
 .hero-scroll {
   position: absolute;
-  bottom: 40px;
+  bottom: 64px;
   left: 80px;
   display: flex;
   align-items: center;
@@ -2243,3 +2243,59 @@ footer {
   box-shadow: 0 24px 60px rgba(14, 24, 18, 0.12);
 }
 @media (max-width: 900px) { .tour-models { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
+
+
+/* =============================================
+   MEDIA DISCLAIMER
+   Rides along with every render and video: what you see is illustrative, and
+   nothing that's furnished comes with the house.
+   ============================================= */
+.media-note {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: var(--gray);
+  margin-top: 12px;
+}
+
+/* For media that fills a fixed-height container — a caption underneath would
+   have nowhere to sit, so it rides over the bottom of the frame instead. */
+.media-note--overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  margin: 0;
+  padding: 22px 20px 12px;
+  text-align: center;
+  color: rgba(255,255,255,0.74);
+  background: linear-gradient(to top, rgba(14,24,18,0.82), rgba(14,24,18,0));
+  pointer-events: none;   /* keeps gallery lightbox clicks working */
+}
+
+/* =============================================
+   INTERIOR TEASER
+   ============================================= */
+.interior-teaser {
+  background: var(--white);
+  padding: 100px 80px;
+}
+.interior-teaser-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.interior-teaser-card {
+  margin: 0 auto;
+  max-width: 860px;
+}
+.interior-teaser-card video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  background: var(--charcoal);
+  box-shadow: 0 24px 60px rgba(14, 24, 18, 0.12);
+}
+@media (max-width: 900px) {
+  .interior-teaser { padding: 72px 24px; }
+}

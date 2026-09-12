@@ -199,7 +199,8 @@
 
 .listing-specs {
   display: flex;
-  gap: 28px;
+  flex-wrap: wrap;
+  gap: 20px 28px;
   padding: 24px 0;
   border-top: 1px solid var(--light-gray);
   border-bottom: 1px solid var(--light-gray);
