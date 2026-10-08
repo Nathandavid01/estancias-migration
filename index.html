@@ -38,12 +38,18 @@
 
   <!-- ============ HERO ============ -->
   <header class="hero">
-    <!-- The three models, filmed together — the first thing you see. -->
-    <div class="hero-stage">
-      <video class="hero-bg-video" id="filmVideo" autoplay muted loop playsinline preload="auto"
-             poster="images/hero-poster.jpg" aria-hidden="true">
-        <source src="images/hero.mp4" type="video/mp4">
-      </video>
+    <!-- One house at a time — Flamboyán, Yagrumo, Ceiba — under a single big
+         COMING SOON. Exteriors only. -->
+    <div class="hero-stage" id="heroStage">
+      <div class="hero-slide is-active">
+        <img src="images/tour-two-story-poster.jpg" alt="Modelo Flamboyán — Estancias del Bosque Estates" />
+      </div>
+      <div class="hero-slide">
+        <img src="images/tour-single-story-poster.jpg" alt="Modelo Yagrumo — Estancias del Bosque Estates" loading="lazy" />
+      </div>
+      <div class="hero-slide">
+        <img src="images/ceiba-poster.jpg" alt="Modelo Ceiba — Estancias del Bosque Estates" loading="lazy" />
+      </div>
     </div>
     <div class="hero-veil"></div>
 
@@ -74,8 +80,55 @@
       </div>
     </div>
 
+    <!-- Which house is on screen, and manual control of the rotation. -->
+    <div class="hero-nav" id="heroNav" role="tablist" aria-label="Modelos">
+      <button type="button" class="hero-dot is-active" role="tab" aria-selected="true">
+        <span class="hero-dot-bar"></span>
+        <span class="hero-dot-name">Flamboyán</span>
+      </button>
+      <button type="button" class="hero-dot" role="tab" aria-selected="false">
+        <span class="hero-dot-bar"></span>
+        <span class="hero-dot-name">Yagrumo</span>
+      </button>
+      <button type="button" class="hero-dot" role="tab" aria-selected="false">
+        <span class="hero-dot-bar"></span>
+        <span class="hero-dot-name">Ceiba</span>
+      </button>
+    </div>
+
     <p class="media-note media-note--hero">Interior images are digital renderings for illustrative purposes only. Furniture and appliances are not included with the property.</p>
   </header>
+
+  <!-- ============ FILM ============ -->
+  <!-- The three models, filmed together. Framed (not full-bleed) so the full
+       composition stays visible — cropping would cut the side residences. -->
+  <section class="film">
+    <div class="hero-video-wrap">
+      <div class="film-head">
+        <p class="eyebrow">The three models together</p>
+        <h2 class="film-title">
+          <em>Estancias</em> del Bosque
+          <span class="film-title-sub">Estates · Trujillo Alto, Puerto Rico</span>
+        </h2>
+      </div>
+
+      <div class="hero-video-frame">
+        <!-- Marca sobre la toma: si alguien la comparte suelta, sigue diciendo
+             de qué proyecto es. -->
+        <span class="film-mark">
+          <span class="film-mark-main">Estancias del Bosque</span>
+          <span class="film-mark-sub">Estates</span>
+        </span>
+        <video id="filmVideo" controls autoplay muted loop playsinline preload="metadata"
+               poster="images/hero-poster.jpg">
+          <source src="images/hero.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
+      <p class="video-caption">Flamboyán · Yagrumo · Ceiba</p>
+      <p class="media-note media-note--on-dark media-note--center">Interior images are digital renderings for illustrative purposes only. Furniture and appliances are not included with the property.</p>
+    </div>
+  </section>
 
   <!-- ============ INTERIOR TEASER ============ -->
   <!-- First look inside. 16:9 source, so this frame overrides the wide
@@ -126,7 +179,7 @@
             <div class="model-rule"></div>
             <ul class="model-specs">
               <li><span class="k">Bedrooms</span><span class="v">3</span></li>
-              <li><span class="k">Bathrooms</span><span class="v">2.5 <small>2 full · 1 half</small></span></li>
+              <li><span class="k">Bathrooms</span><span class="v">3.5 <small>3 full · 1 half</small></span></li>
               <li><span class="k">Layout</span><span class="v">Two Stories</span></li>
               <li><span class="k">Total Area</span><span class="v">2,629 <small>sq ft approx.</small></span></li>
             </ul>
@@ -268,7 +321,7 @@
           <label for="model">Model of Interest</label>
           <select id="model" name="model">
             <option value="">No preference yet</option>
-            <option value="Flamboyán">Flamboyán — 3 bd · 2.5 ba · Two Stories</option>
+            <option value="Flamboyán">Flamboyán — 3 bd · 3.5 ba · Two Stories</option>
             <option value="Yagrumo">Yagrumo — 3 bd · 2.5 ba · One Story</option>
             <option value="Ceiba">Ceiba — 4 bd · 2.5 ba · One Story</option>
           </select>

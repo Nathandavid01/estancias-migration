@@ -29,13 +29,56 @@
     items.forEach(function (el) { el.classList.add('visible'); });
   }
 
+  // --- HERO: one house at a time (Flamboyán → Yagrumo → Ceiba) ---
+  var stage = document.getElementById('heroStage');
+  var heroNav = document.getElementById('heroNav');
+  if (stage) {
+    var slides = Array.prototype.slice.call(stage.querySelectorAll('.hero-slide'));
+    var dots = heroNav ? Array.prototype.slice.call(heroNav.querySelectorAll('.hero-dot')) : [];
+    var current = 0;
+    var timer = null;
+    var HOLD = 5200;
+    var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var show = function (next) {
+      current = (next + slides.length) % slides.length;
+      slides.forEach(function (s, i) { s.classList.toggle('is-active', i === current); });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === current);
+        d.setAttribute('aria-selected', i === current ? 'true' : 'false');
+      });
+    };
+
+    var start = function () {
+      if (still || slides.length < 2) return;
+      stop();
+      timer = window.setInterval(function () { show(current + 1); }, HOLD);
+    };
+    var stop = function () {
+      if (timer !== null) { window.clearInterval(timer); timer = null; }
+    };
+
+    // Clicking a name jumps to that house and restarts the clock, so the pick
+    // isn't yanked away half a second later.
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { show(i); start(); });
+    });
+
+    // Don't burn cycles (or data) rotating a hero nobody is looking at.
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+
+    start();
+  }
+
   // --- VIDEOS: autoplay while on screen, pause off-screen (saves data on mobile) ---
   var videos = ['filmVideo', 'teaserVideo']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
   var play = function (v) {
     var p = v.play();
-    if (p && p.catch) p.catch(function () { /* autoplay blocked — poster/controls remain */ });
+    if (p && p.catch) p.catch(function () { /* autoplay blocked — controls are visible */ });
   };
   if ('IntersectionObserver' in window) {
     var videoIO = new IntersectionObserver(function (entries) {
