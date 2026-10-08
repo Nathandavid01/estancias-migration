@@ -1,6 +1,6 @@
-# Pushes made by the Claude GitHub App don't kick off the GitHub Pages build on
-# their own, so request one explicitly on every push to main.
-name: Rebuild GitHub Pages
+# Pushes made by the Claude GitHub App don't kick off the branch-based GitHub
+# Pages build, so publish the site from Actions on every push to main instead.
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -8,15 +8,24 @@ on:
   workflow_dispatch:
 
 permissions:
+  contents: read
   pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  rebuild:
+  deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Request Pages build
-        run: |
-          curl -fsS -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pages/builds"
+      - uses: actions/checkout@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
