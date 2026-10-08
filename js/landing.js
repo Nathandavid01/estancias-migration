@@ -78,7 +78,7 @@
     .filter(Boolean);
   var play = function (v) {
     var p = v.play();
-    if (p && p.catch) p.catch(function () { /* autoplay blocked — controls are visible */ });
+    if (p && p.catch) p.catch(function () { /* autoplay blocked — the poster stays up */ });
   };
   if ('IntersectionObserver' in window) {
     var videoIO = new IntersectionObserver(function (entries) {

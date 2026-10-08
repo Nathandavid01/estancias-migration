@@ -327,7 +327,9 @@ h1 em, h2 em { font-style: italic; }
   box-shadow: 0 40px 90px rgba(0,0,0,0.55);
   background: #000;
 }
+/* Background-style playback: no controls, nothing to click or long-press. */
 .hero-video-frame video {
+  pointer-events: none;
   display: block;
   width: 100%;
   height: auto;
