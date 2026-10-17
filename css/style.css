@@ -1186,6 +1186,14 @@ footer {
 
 .footer-legal a:hover { color: rgba(255,255,255,0.5); }
 
+.footer-disclaimer {
+  max-width: 1400px;
+  margin: 18px auto 0;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.75;
+}
+
 /* =============================================
    LIGHTBOX
    ============================================= */
